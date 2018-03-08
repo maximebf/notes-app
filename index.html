@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Notes app</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="https://cdn.rawgit.com/maximebf/gousse.js/4328a697/gousse.min.js"></script>
+    <script src="app.js" type="module"></script>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+        }
+        .notebook {
+            display: flex;
+            height: 100%;
+        }
+            .notebook > nav {
+                flex: 0 0 300px;
+                background: #efefef;
+                border-right: 1px solid #ccc;
+                display: flex;
+                flex-direction: column;
+            }
+                .notebook > nav > .nav-main {
+                    flex: 1 1 auto;
+                }
+                .notebook > nav > .nav-bottom {
+                    font-size: 12px;
+                    padding: 8px;
+                    background: #ddd;
+                    color: #555;
+                }
+            .notebook > main {
+                flex: 1 1 auto;
+                display: flex;
+                overflow: hidden;
+            }
+
+        .notebook-toolbar {
+            display: flex;
+            padding: 9px;
+            height: 48px;
+            background: #f5d835;
+        }
+            .notebook-search {
+                flex: 1 1 auto;
+            }
+            .create-note-btn {
+                flex: 0 0 auto;
+                margin-left: 5px;
+                background: #e2c72f;
+                border-radius: 2px;
+                border: 1px solid #d6bc29;
+                padding: 5px 9px;
+                color: #555;
+                cursor: pointer;
+            }
+
+        .notebook-selector {
+            margin: 5px 0 10px;
+            background: #ccc;
+            border-radius: 4px;
+            padding: 4px;
+        }
+
+        .note-list {
+            flex: 1 1 auto;
+        }
+            .note-list-item {
+                display: block;
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                text-decoration: none;
+                color: #555;
+            }
+            .note-list-item.active {
+                background: #eaeaea;
+                border-left: 4px solid #2071da;
+                color: #222;
+            }
+                .note-list-item h5 {
+                    margin: 0 0 5px 0;
+                }
+                .note-list-item small {
+                    font-size: 10px;
+                }
+
+        .note-editor {
+            height: 100%;
+            flex: 1 1 auto;
+            position: relative;
+        }
+            .editor-toolbar {
+                border: 0;
+                background: #f5d835;
+            }
+            .CodeMirror {
+                border-width: 1px 0 0 0;
+                border-radius: 0;
+            }
+
+        .loading {
+            text-align: center;
+            margin: 10px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .store-chooser {
+            margin: 20px auto;
+            width: 300px;
+        }
+            .store-chooser h1 {
+                color: #555;
+                text-align: center;
+            }
+            .store-chooser .btn,
+            .store-chooser .btn-group {
+                display: block;
+                width: 100%;
+                background: #ddd;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                padding: 10px;
+                color: #555;
+                margin: 5px 0;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .store-chooser .btn-group {
+                padding: 0;
+                display: flex;
+            }
+                .store-chooser .btn-group .btn {
+                    width: auto;
+                    background: transparent;
+                    border: 0;
+                }
+                .store-chooser .btn-group .btn.large {
+                    flex: 1;
+                }
+            .store-chooser .saved-stores .btn-group {
+                background: #e2c72f;
+                border: 1px solid #d6bc29;
+            }
+            .store-chooser .saved-stores {
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+                border-bottom: 1px dashed #eee;
+            }
+    </style>
+</head>
+<body>
+</body>
+</html>
