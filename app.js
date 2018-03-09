@@ -1,4 +1,4 @@
-import * as availableStores from '/storage.js';
+const availableStores = {};
 
 const icon = component(props => h('i', {class: 'fa fa-' + props.name}));
 
@@ -189,7 +189,7 @@ const storeChooser = component(props => {
             return h('div', {class: 'saved-stores'}, saved.map(data => {
                 return h('div', {class: 'btn-group'},
                     h('button', {class: 'btn large', onclick: e => {
-                        start(availableStores[data.storeClass], data.options);
+                        start(availableStores[data.storage], data.options);
                     }}, data.name),
                     h('button', {class: 'btn', onclick: e => {
                         saved.splice(saved.indexOf(data), 1);
@@ -198,8 +198,8 @@ const storeChooser = component(props => {
                 );
             }))
         }, true),
-        h('div', {class: 'available-stores'}, Object.keys(availableStores).map(storeClassName => {
-            const storeClass = availableStores[storeClassName];
+        h('div', {class: 'available-stores'}, Object.keys(availableStores).map(storeName => {
+            const storeClass = availableStores[storeName];
             return h('button', {class: 'btn', onclick: e => {
                 let opts = {};
                 storeClass.getRequiredOptions().forEach(opt => {
@@ -208,7 +208,7 @@ const storeChooser = component(props => {
                 const saved = getSavedStores();
                 saved.push({
                     name: storeClass.getSavedName(opts),
-                    storeClass: storeClassName,
+                    storage: storeName,
                     options: opts
                 });
                 updateSavedStores(saved);

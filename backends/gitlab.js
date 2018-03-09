@@ -1,5 +1,6 @@
 
-export class GitlabStore {
+availableStores.gitlab = class {
+    
     static getDisplayName() {
         return 'Gitlab';
     }
